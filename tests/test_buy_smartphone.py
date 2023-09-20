@@ -7,6 +7,7 @@ from pages.mainpage import MainPage
 from pages.phones import Phones
 from pages.itemcard import ItemCard
 
+
 @pytest.mark.run(order=3)
 def test_buy_smartphone(set_up):
     options = webdriver.ChromeOptions()
@@ -32,6 +33,7 @@ def test_buy_smartphone(set_up):
 
     driver.quit()
 
+
 @pytest.mark.run(order=1)
 def test_fail_auth_email(set_up):
     options = webdriver.ChromeOptions()
@@ -48,6 +50,7 @@ def test_fail_auth_email(set_up):
 
     driver.quit()
 
+
 @pytest.mark.run(order=2)
 def test_fail_auth_password(set_up):
     options = webdriver.ChromeOptions()
@@ -63,6 +66,7 @@ def test_fail_auth_password(set_up):
     fail_login_password.fail_password()
 
     driver.quit()
+
 
 @pytest.mark.run(order=4)
 def test_find_specific_smartphone(set_up):
@@ -93,9 +97,3 @@ def test_find_specific_smartphone(set_up):
     print("Item and price is ok")
 
     driver.quit()
-
-
-
-
-
-

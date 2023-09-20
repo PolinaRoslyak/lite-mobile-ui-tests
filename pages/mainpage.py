@@ -5,12 +5,8 @@ from base.base_class import Base
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 
+
 class MainPage(Base):
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     phones = "/html/body/header/nav[1]/ul/li[3]/a"
     phones_title = "/html/body/main/div[2]/div/div/div[1]/h1"
@@ -28,11 +24,11 @@ class MainPage(Base):
         return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.phones_title)))
 
     def get_form_search(self):
-        return WebDriverWait(self.driver, 20, ignored_exceptions=self.ignored_exceptions)\
+        return WebDriverWait(self.driver, 20, ignored_exceptions=self.ignored_exceptions) \
             .until(ec.element_to_be_clickable((By.XPATH, self.form_search)))
 
     def get_iphone13(self):
-        return WebDriverWait(self.driver, 20).\
+        return WebDriverWait(self.driver, 20). \
             until(ec.element_to_be_clickable((By.XPATH, self.specific_smartphone_base_xpath + self.iphone13)))
 
     # Actions

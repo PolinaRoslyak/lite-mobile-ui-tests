@@ -22,7 +22,7 @@ class Base:
     def screenshot(self):
         now_date = str(datetime.datetime.now())
         name_screenshot = "screen" + now_date + ".png"
-        self.driver.save_screenshot("/Users/pnmaksi1/PycharmProjects/dns/screens/"+name_screenshot)
+        self.driver.save_screenshot("/PycharmProjects/dns/screens/"+name_screenshot)
         print("Screenshot is done")
 
     def assert_url(self, result):

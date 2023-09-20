@@ -7,10 +7,6 @@ from base.base_class import Base
 
 class Phones(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     brand_apple = "/html/body/main/div[3]/div/div/div/div/div[1]/div[1]/a"
     check_apple = "/html/body/main/div[2]/div/div/div[1]/h1"

@@ -7,10 +7,6 @@ from base.base_class import Base
 class Auth(Base):
     url = 'https://lite-mobile.ru/'
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     enter_button = "//a[@class='header-auth__btn']"
     user_name = "//*[@id='auth']/div/div[3]/div[1]/form/div[1]/div[1]/div[2]/input"

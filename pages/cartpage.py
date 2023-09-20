@@ -6,10 +6,6 @@ from pages.itemcard import ItemCard
 
 class CartPage(ItemCard):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     name = "//input[@id='firstname-ch']"
     surname = "//input[@id='lastname-ch']"

@@ -6,10 +6,6 @@ from base.base_class import Base
 
 class ItemCard(Base):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     item_name_item_card = "//h1[@itemprop='name']"
     cart_button = "/html/body/main/div[1]/div[5]/div/div[2]/div[2]/div[3]/div[1]/div/div[5]/a[1]"
