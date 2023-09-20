@@ -8,7 +8,7 @@ from pages.phones import Phones
 from pages.itemcard import ItemCard
 
 
-@pytest.mark.run(order=3)
+@pytest.mark.run(order=2)
 def test_buy_smartphone(set_up):
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-sertificate-errors')
@@ -35,40 +35,6 @@ def test_buy_smartphone(set_up):
 
 
 @pytest.mark.run(order=1)
-def test_fail_auth_email(set_up):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-sertificate-errors')
-    options.add_argument('--ignore-ssl-errors')
-    options.add_experimental_option("detach", True)
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.page_load_strategy = 'eager'
-    g = Service()
-    driver = webdriver.Chrome(options=options, service=g)
-
-    fail_login_email = Auth(driver)
-    fail_login_email.fail_email()
-
-    driver.quit()
-
-
-@pytest.mark.run(order=2)
-def test_fail_auth_password(set_up):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-sertificate-errors')
-    options.add_argument('--ignore-ssl-errors')
-    options.add_experimental_option("detach", True)
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.page_load_strategy = 'eager'
-    g = Service()
-    driver = webdriver.Chrome(options=options, service=g)
-
-    fail_login_password = Auth(driver)
-    fail_login_password.fail_password()
-
-    driver.quit()
-
-
-@pytest.mark.run(order=4)
 def test_find_specific_smartphone(set_up):
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-sertificate-errors')

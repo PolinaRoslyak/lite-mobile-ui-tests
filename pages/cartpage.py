@@ -22,16 +22,16 @@ class CartPage(ItemCard):
 
     # Getters
     def get_name(self):
-        return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.name)))
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.name)))
 
     def get_surname(self):
-        return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.surname)))
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.surname)))
 
     def get_email(self):
-        return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.email)))
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.email)))
 
     def get_phonenumber(self):
-        return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.phone_number)))
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.phone_number)))
 
     def get_title_name_checkout(self):
         return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.title_name_checkout)))
@@ -47,7 +47,7 @@ class CartPage(ItemCard):
     #     return WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, self.close_privacy_policy)))
 
     def get_cookie_accept(self):
-        return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.accept_cookie_button)))
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.accept_cookie_button)))
 
     # Actions
     def send_name(self, name):

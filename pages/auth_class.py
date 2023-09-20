@@ -19,6 +19,9 @@ class Auth(Base):
     assertion_wrong_password_text = "Неправильно заполнены поле E-Mail и/или пароль!"
     new_password = "/html/body/main/main/div[3]/div/div/div[2]/form/div[1]/div[2]/div[2]/input"
     second_login_button = "/html/body/main/main/div[3]/div/div/div[2]/form/div[2]/button"
+    profile_list_down = "//div[@class='header-auth__arr']"
+    logout_option = "//a[@href='https://lite-mobile.ru/logout']"
+    logout_url = "https://lite-mobile.ru/logout"
 
     # Getters
     def get_enter_button(self):
@@ -45,7 +48,10 @@ class Auth(Base):
     def get_second_login_button(self):
         return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.second_login_button)))
 
+    def get_logout_option(self):
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.logout_option)))
     # Actions
+
     def click_enter_button(self):
         self.get_enter_button().click()
         print("Click enter button")
@@ -74,6 +80,10 @@ class Auth(Base):
     def click_second_login_button(self):
         self.get_second_login_button().click()
         print("Click login again")
+
+    def click_logout_option(self):
+        self.get_logout_option().click()
+        print("Click logout")
 
     # Methods
     def auth_on_site(self):
@@ -117,3 +127,8 @@ class Auth(Base):
         self.input_new_password("qwerty12345")
         self.click_second_login_button()
         self.assert_word(self.get_user_profile(), self.assertion_profile_text)
+
+    def logout(self):
+        self.move_to_element(self.profile_list_down)
+        self.click_logout_option()
+        self.assert_url(self.logout_url)

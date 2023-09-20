@@ -45,4 +45,7 @@ class Base:
         saved_text = get_xpath.text
         return saved_text
 
+    def move_to_element(self, xpath):
+        action = ActionChains(self.driver)
+        action.move_to_element(self.driver.find_element(By.XPATH, xpath)).perform()
 

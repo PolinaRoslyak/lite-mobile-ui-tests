@@ -24,7 +24,7 @@ class MainPage(Base):
         return WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, self.phones_title)))
 
     def get_form_search(self):
-        return WebDriverWait(self.driver, 20, ignored_exceptions=self.ignored_exceptions) \
+        return WebDriverWait(self.driver, 10, ignored_exceptions=self.ignored_exceptions) \
             .until(ec.element_to_be_clickable((By.XPATH, self.form_search)))
 
     def get_iphone13(self):

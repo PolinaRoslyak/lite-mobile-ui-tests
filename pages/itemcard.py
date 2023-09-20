@@ -45,13 +45,3 @@ class ItemCard(Base):
         self.get_current_url()
         self.click_cart_button()
         self.click_checkout_button()
-
-    # def save_title(self):
-    #     saved_title = self.get_item_name().text
-    #     print(saved_title)
-    #     return saved_title
-    #
-    # def save_price(self):
-    #     saved_price = self.get_price().text
-    #     print(saved_price)
-    #     return saved_price

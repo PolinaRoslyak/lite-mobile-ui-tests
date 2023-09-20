@@ -91,10 +91,6 @@ class Phones(Base):
         action.drag_and_drop_by_offset(self.driver.find_element(By.XPATH, self.slider_upper), x, y).perform()
         print("move right slider")
 
-    def move_to_iphone(self):
-        action = ActionChains(self.driver)
-        action.move_to_element(self.driver.find_element(By.XPATH, self.iphone)).perform()
-
     def check_quick_view(self):
         assert self.quick_view_apple not in self.driver.page_source
         print("quick view not found")
@@ -127,7 +123,7 @@ class Phones(Base):
         self.click_iphone13()
         self.scroll_from_elm(self.iphone13_menu_bar, 0, 450)
         self.check_quick_view()
-        self.move_to_iphone()
+        self.move_to_element(self.iphone)
         self.click_quick_view_apple()
         self.return_title_and_price_quick_view()
         self.click_cart_button_quick_view()
