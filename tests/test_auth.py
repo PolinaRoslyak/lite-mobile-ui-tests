@@ -51,3 +51,19 @@ def test_logout_process(set_up):
     logout_process = Auth(driver)
     logout_process.auth_on_site()
     logout_process.logout()
+def test_check_social_media():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--ignore-sertificate-errors')
+    options.add_argument('--ignore-ssl-errors')
+    options.add_experimental_option("detach", True)
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.page_load_strategy = 'eager'
+    g = Service()
+    driver = webdriver.Chrome(options=options, service=g)
+
+    check_social_media = Auth(driver)
+    check_social_media.enter_without_auth()
+    check_social_media.check_social_medias()
+
+    driver.quit()
+

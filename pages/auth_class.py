@@ -22,6 +22,17 @@ class Auth(Base):
     profile_list_down = "//div[@class='header-auth__arr']"
     logout_option = "//a[@href='https://lite-mobile.ru/logout']"
     logout_url = "https://lite-mobile.ru/logout"
+    foursquare = "//a[@href='https://ru.foursquare.com/litemobile']"
+    vk = "//a[@href='https://vk.com/litemobileru']"
+    telegram = "//a[@ href='https://t.me/litemobilenews']"
+    youtube = "//a[@href='https://youtube.com/@litemobilenews']"
+    yappy = "//a[@href='https://yappy.media/s/p_4wRg8RQPZcTnBM1TnNKNNr']"
+    foursquare_link = "https://ru.foursquare.com/litemobile"
+    vk_link = "https://vk.com/litemobileru"
+    telegram_link = "https://t.me/litemobilenews"
+    youtube_link = "https://www.youtube.com/@litemobilenews"
+    yappy_link = "https://yappy.media/profile/94d74ed1-6e32-4b90-b3a1-008656decfbd?utm_" \
+                 "source=url&utm_medium=share&utm_campaign=profile"
 
     # Getters
     def get_enter_button(self):
@@ -50,6 +61,22 @@ class Auth(Base):
 
     def get_logout_option(self):
         return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.logout_option)))
+
+    def get_foursquare(self):
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.foursquare)))
+
+    def get_vk(self):
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.vk)))
+
+    def get_telegram(self):
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.telegram)))
+
+    def get_youtube(self):
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.youtube)))
+
+    def get_yappy(self):
+        return WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, self.yappy)))
+
     # Actions
 
     def click_enter_button(self):
@@ -84,6 +111,26 @@ class Auth(Base):
     def click_logout_option(self):
         self.get_logout_option().click()
         print("Click logout")
+
+    def click_foursquare(self):
+        self.get_foursquare().click()
+        print("Click foursquare icon")
+
+    def click_vk(self):
+        self.get_vk().click()
+        print("Click vk icon")
+
+    def click_telegram(self):
+        self.get_telegram().click()
+        print("Click telegram icon")
+
+    def click_youtube(self):
+        self.get_youtube().click()
+        print("Click youtube icon")
+
+    def click_yappy(self):
+        self.get_yappy().click()
+        print("Click yappy icon")
 
     # Methods
     def auth_on_site(self):
@@ -132,3 +179,16 @@ class Auth(Base):
         self.move_to_element(self.profile_list_down)
         self.click_logout_option()
         self.assert_url(self.logout_url)
+
+    def check_social_medias(self):
+        self.click_foursquare()
+        self.assert_url(self.foursquare_link)
+        self.click_vk()
+        self.assert_url(self.vk_link)
+        self.click_telegram()
+        self.assert_url(self.telegram_link)
+        self.click_youtube()
+        self.assert_url(self.youtube_link)
+        self.click_yappy()
+        self.assert_url(self.yappy_link)
+
