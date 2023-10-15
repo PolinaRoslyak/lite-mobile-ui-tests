@@ -191,4 +191,3 @@ class Auth(Base):
         self.assert_url(self.youtube_link)
         self.click_yappy()
         self.assert_url(self.yappy_link)
-
